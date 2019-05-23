@@ -1,2 +1,8 @@
+// Files
 *.class
 *.log
+
+// Folders
+.idea/
+.scannerwork/
+target/
