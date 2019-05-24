@@ -1,2 +1,2 @@
-# ixxus-scala-archetype
+# scala-archetype
 Base configuration for Scala projects.

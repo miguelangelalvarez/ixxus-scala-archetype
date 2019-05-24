@@ -6,12 +6,9 @@
    <parameter name="maxFileLength"><![CDATA[800]]></parameter>
   </parameters>
  </check>
- <check level="warning" class="org.scalastyle.file.HeaderMatchesChecker" enabled="true">
+ <check level="warning" class="org.scalastyle.file.HeaderMatchesChecker" enabled="false">
   <parameters>
-   <parameter name="header"><![CDATA[/*
- * Copyright (c) 2019, Ixxus Ltd.
- * All rights reserved.
- */]]></parameter>
+   <parameter name="header"><![CDATA[]]></parameter>
   </parameters>
  </check>
  <check level="warning" class="org.scalastyle.scalariform.SpacesAfterPlusChecker" enabled="true" />

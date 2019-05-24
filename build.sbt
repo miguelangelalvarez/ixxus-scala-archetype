@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2019, Ixxus Ltd.
- * All rights reserved.
- */
 import sbt.Keys._
 import com.typesafe.sbt.SbtScalariform
 import sbtsonar.SonarPlugin.autoImport.sonarProperties
@@ -14,8 +10,7 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 addSbtPlugin("com.sksamuel.scapegoat" %% "sbt-scapegoat" % "1.0.9")
 
 sbtPlugin := true
-organization := "com.ixxus"
-name := "ixxus-scala-archetype"
+name := "scala-archetype"
 version := "1.0.0-SNAPSHOT"
 
 publishMavenStyle := true

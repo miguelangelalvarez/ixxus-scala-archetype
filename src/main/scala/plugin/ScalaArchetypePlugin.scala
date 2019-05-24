@@ -1,25 +1,20 @@
-/*
- * Copyright (c) 2019, Ixxus Ltd.
- * All rights reserved.
- */
-package com.ixxus.plugin
+package plugin
 
-import sbt.{Def, _}
-import sbt.Keys._
-import com.typesafe.sbt.packager.NativePackagerKeys
-import com.typesafe.sbt.{SbtNativePackager, SbtScalariform}
 import com.typesafe.sbt.SbtScalariform.ScalariformKeys
+import com.typesafe.sbt.packager.NativePackagerKeys
 import com.typesafe.sbt.packager.archetypes.JavaServerAppPackaging
-import com.typesafe.sbt.packager.docker._
 import com.typesafe.sbt.packager.docker.DockerPlugin.autoImport._
+import com.typesafe.sbt.packager.docker._
 import com.typesafe.sbt.packager.universal.UniversalDeployPlugin
+import com.typesafe.sbt.{SbtNativePackager, SbtScalariform}
+import sbt.Keys._
 import sbt.plugins.IvyPlugin
+import sbt.{Def, _}
 import scalariform.formatter.preferences._
 
 import scala.collection.immutable.Seq
 
-object IxxusProjectPlugin extends AutoPlugin with NativePackagerKeys {
-
+object ScalaArchetypePlugin extends AutoPlugin with NativePackagerKeys {
   override def requires: Plugins = IvyPlugin &&
     SbtScalariform &&
     SbtNativePackager &&
@@ -31,7 +26,6 @@ object IxxusProjectPlugin extends AutoPlugin with NativePackagerKeys {
 
   override lazy val projectSettings: Seq[Def.Setting[_]] = Seq(
     scalaVersion := "2.12.4",
-    organization := "com.ixxus",
     fork in run := true,
     fork in Test := true,
     fork in testOnly := true,
@@ -43,10 +37,10 @@ object IxxusProjectPlugin extends AutoPlugin with NativePackagerKeys {
     version in Docker := version.value,
     dockerCommands := Seq(
       Cmd("FROM", "openjdk:8-jdk-slim"),
-      Cmd("MAINTAINER", "swat@ixxus.com"),
+      Cmd("MAINTAINER", "migalvcon@gmail.com"),
       Cmd("ADD", s"opt/docker /opt/${name.value}"),
       Cmd("WORKDIR", s"/opt/${name.value}"),
-      ExecCmd("RUN", "mkdir", "-p", s"/var/log/ixxus/${name.value}"),
+      ExecCmd("RUN", "mkdir", "-p", s"/var/log/${name.value}"),
       ExecCmd("ENTRYPOINT", s"/opt/${name.value}/bin/${name.value}")),
     scalacOptions ++= CustomSettings.compileSettings) ++ CustomSettings.scalariformPreferences
 }
