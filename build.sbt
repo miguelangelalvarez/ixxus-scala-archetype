@@ -10,6 +10,7 @@ addSbtPlugin("org.scalastyle" %% "scalastyle-sbt-plugin" % "1.0.0")
 addSbtPlugin("com.sksamuel.scapegoat" %% "sbt-scapegoat" % "1.0.9")
 
 sbtPlugin := true
+organization := "com.swat"
 name := "scala-archetype"
 version := "1.0.0-SNAPSHOT"
 
@@ -19,6 +20,6 @@ sonarProperties ++= Map(
   "sonar.host.url" -> "http://localhost:8080"
 )
 
-scapegoatVersion in ThisBuild := "1.3.4"
+scapegoatVersion in ThisBuild := "1.3.8"
 
 enablePlugins(SbtScalariform, JavaServerAppPackaging, UniversalDeployPlugin, DockerPlugin)
